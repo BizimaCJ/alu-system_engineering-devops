@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# connects to server using the private key with the user ubuntu
+ssh -i /root/.ssh/id_rsa ubuntu@3.89.112.43
+
