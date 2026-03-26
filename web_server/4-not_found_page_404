@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Configures Nginx with a custom 404 page containing Ceci n'est pas une page
+apt-get update -y
+apt-get install -y nginx
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+sed -i 's/server_name _;/server_name _;\n\tlocation \/redirect_me {\n\t\treturn 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;\n\t}\n\terror_page 404 \/404.html;/' /etc/nginx/sites-available/default
+service nginx restart
+
